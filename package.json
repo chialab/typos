@@ -7,12 +7,18 @@
   "author": "Chialab <dev@chialab.io> (https://www.chialab.it)",
   "license": "MIT",
   "types": "types/index.d.ts",
-  "main": "dist/typos.js",
+  "main": "dist/esm/typos.js",
   "exports": {
     ".": {
-      "default": "./dist/typos.js"
-    }
+      "default": "./dist/esm/typos.js"
+    },
+    "./dist/*": "./dist/*"
   },
+  "files": [
+    "dist",
+    "types",
+    "package.json"
+  ],
   "scripts": {
     "build": "rna build",
     "types": "rimraf types && tsc",

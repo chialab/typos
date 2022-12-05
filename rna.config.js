@@ -9,11 +9,19 @@ export default async function() {
         entrypoints: [
             {
                 input: 'src/index.ts',
-                output: 'dist/typos.js',
+                output: 'dist/esm/typos.js',
                 format: 'esm',
+            },
+            {
+                input: 'src/index.ts',
+                output: 'dist/iife/typos.js',
+                format: 'iife',
+                target: 'es2016',
+                globalName: 'Typos',
             },
         ],
         sourcemap: true,
         minify: true,
+        clean: true,
     };
 }
