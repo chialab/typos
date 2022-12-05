@@ -32,7 +32,7 @@ import { fixQuotes } from 'https://unpkg.com/@chialab/typos?module';
 
 ### TinyMCE
 
-Use **Typos** as plugin for TinyMCE:
+Use **Typos** as plugin for [TinyMCE](https://www.tiny.cloud/):
 
 ```ts
 import tinymce from 'tinymce/tinymce';
@@ -62,7 +62,7 @@ yarn
 yarn build
 ```
 
-This will generate the ESM and CJS bundles in the `dist` folder and declaration files in the `types` folder.
+This will generate the ESM and IIFE bundles in the `dist` folder and declaration files in the `types` folder.
 
 ---
 
