@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Typing utilities for wysiwyg editors.",
-  "main": "index.js",
   "repository": "https://github.com/chialab/typos",
   "author": "Chialab <dev@chialab.io> (https://www.chialab.it)",
   "license": "MIT",
+  "types": "types/index.d.ts",
+  "main": "dist/typos.js",
+  "exports": {
+    ".": {
+      "default": "./dist/typos.js"
+    }
+  },
   "scripts": {
     "build": "rna build",
     "types": "rimraf types && tsc",

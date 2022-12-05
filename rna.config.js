@@ -9,7 +9,7 @@ export default async function() {
         entrypoints: [
             {
                 input: 'src/index.ts',
-                output: 'dist/index.js',
+                output: 'dist/typos.js',
                 format: 'esm',
             },
         ],
