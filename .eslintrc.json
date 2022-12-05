@@ -1,0 +1,6 @@
+{
+  "extends": "@chialab/eslint-config/typescript",
+  "parserOptions": {
+    "project": false
+  }
+}

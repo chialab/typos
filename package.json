@@ -1,0 +1,23 @@
+{
+  "name": "@chialab/typos",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Typing utilities for wysiwyg editors.",
+  "main": "index.js",
+  "repository": "https://github.com/chialab/typos",
+  "author": "Chialab <dev@chialab.io> (https://www.chialab.it)",
+  "license": "MIT",
+  "scripts": {
+    "build": "rna build",
+    "types": "rimraf types && tsc",
+    "lint": "eslint 'src/**/*'"
+  },
+  "devDependencies": {
+    "@chialab/eslint-config": "^3.3.1",
+    "@chialab/rna": "^0.17.6",
+    "@chialab/rna-bundler": "^0.17.6",
+    "eslint": "^8.29.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.3"
+  }
+}
