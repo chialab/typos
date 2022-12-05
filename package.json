@@ -16,9 +16,11 @@
     "./dist/*": "./dist/*"
   },
   "files": [
+    "package.json",
     "dist",
     "types",
-    "package.json"
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "build": "rna build",
@@ -26,6 +28,7 @@
     "lint": "eslint 'src/**/*'"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.25.2",
     "@chialab/eslint-config": "^3.3.1",
     "@chialab/rna": "^0.17.6",
     "@chialab/rna-bundler": "^0.17.6",
