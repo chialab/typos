@@ -51,14 +51,17 @@ tinymce.init({
 
 ## Development
 
-### Requirements
-
 ### Build
 
-Install the dependencies and run the `build` script:
+Install the dependencies
 
 ```
 yarn
+```
+
+and run the `build` script:
+
+```
 yarn build
 ```
 
