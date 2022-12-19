@@ -32,7 +32,7 @@ export function tinymcePlugin(tinymce: typeof TinyMCE, options: TinyTypoPluginOp
      * Typo plugin for tinymce.
      * @param editor The tinymce editor instance.
      */
-    const typoPlugin = (editor: Editor) => {
+    const typoPlugin = function(editor: Editor) {
         if (shouldFixQuotes) {
             editor.addCommand('mceFixQuotes', () => runFix(editor, fixQuotes));
 
@@ -89,7 +89,6 @@ export function tinymcePlugin(tinymce: typeof TinyMCE, options: TinyTypoPluginOp
                 icon: 'fix-quotes',
                 onAction: () => runFix(editor, fixQuotes),
             });
-
         }
     };
     tinymce.util.Tools.resolve('tinymce.PluginManager').add('typos', typoPlugin);
