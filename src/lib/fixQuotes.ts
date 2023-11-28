@@ -27,6 +27,8 @@ export function fixQuotes(input: string) {
         text = text.replace(/(\w+)"(\s|$)/gi, '$1\u201d$2');
 
         node.textContent = text;
+
+        node = walker.nextNode() as Text;
     }
 
     return document.body.innerHTML;
