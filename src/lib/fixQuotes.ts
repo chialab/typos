@@ -20,7 +20,7 @@ export function fixQuotes(input: string) {
         // convert open single quotes to apostrophes
         text = text.replace(/(\s|^)'(\w+)/gi, '$1\u2018$2');
         // convert close single quotes to apostrophes
-        text = text.replace(/(\w+)'(\s|$)/gi, '$1\u2019$2');
+        text = text.replace(/(\w+)'/gi, '$1\u2019');
         // convert open double quotes to quotation marks
         text = text.replace(/(\s|^)"(\w+)/gi, '$1\u201c$2');
         // convert close double quotes to quotation marks
