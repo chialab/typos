@@ -51,21 +51,25 @@ tinymce.init({
 
 ## Development
 
-### Build
-
 Install the dependencies
 
 ```
 yarn
 ```
 
-and run the `build` script:
+Run the `dev` script to debug the library:
+
+```
+yarn dev
+```
+
+Run the `build` script for distribution:
 
 ```
 yarn build
 ```
 
-This will generate the ESM and IIFE bundles in the `dist` folder and declaration files in the `types` folder.
+This will generate the ESM bundle in the `dist` folder and declaration files in the `types` folder.
 
 ---
 

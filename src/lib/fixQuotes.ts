@@ -4,21 +4,30 @@
  * @returns Fixed HTML string.
  */
 export function fixQuotes(input: string) {
-    // open singles
-    input = input.replace(/(^')|((([\s{[(>]')|([\s>]"'))(?!([^<])*?>)(?!<(script|pre|code)[^>]*?>)(?![^<]*?<\/(script|pre|code)>|$))/gi,
-        ($1$2) => $1$2.replace(/'/g, '\u2018')
-    );
+    const parser = new DOMParser();
+    const document = parser.parseFromString(`<html><body>${input}</body></html>`, 'text/html');
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 
-    // closing singles + apostrophes
-    input = input.replace(/'(?!([^<])*?>)(?!<(script|pre|code)[^>]*?>)(?![^<]*?<\/(script|pre|code)>|$)/gi, '\u2019');
+    let node: Text | null = walker.currentNode as Text;
+    while (node) {
+        const parentNode = node.parentElement || document.body;
+        if (parentNode.closest('script, pre, code')) {
+            node = walker.nextNode() as Text;
+            continue;
+        }
 
-    // open doubles
-    input = input.replace(/(^")|((([\s{[(>]")|([\s>]'"))(?!([^<])*?>)(?!<(script|pre|code)[^>]*?>)(?![^<]*?<\/(script|pre|code)>|$))/gi,
-        ($1$2) => $1$2.replace('"', '\u201c')
-    );
+        let text = node.textContent || '';
+        // convert open single quotes to apostrophes
+        text = text.replace(/(\s|^)'(\w+)/gi, '$1\u2018$2');
+        // convert close single quotes to apostrophes
+        text = text.replace(/(\w+)'(\s|$)/gi, '$1\u2019$2');
+        // convert open double quotes to quotation marks
+        text = text.replace(/(\s|^)"(\w+)/gi, '$1\u201c$2');
+        // convert close double quotes to quotation marks
+        text = text.replace(/(\w+)"(\s|$)/gi, '$1\u201d$2');
 
-    // closing doubles
-    input = input.replace(/"(?!([^<])*?>)(?!<(script|pre|code)[^>]*?>)(?![^<]*?<\/(script|pre|code)>|$)/g, '\u201d');
+        node.textContent = text;
+    }
 
-    return input;
+    return document.body.innerHTML;
 }
