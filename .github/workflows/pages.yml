@@ -26,7 +26,7 @@ jobs:
         run: yarn install
 
       - name: Build Pages
-        run: yarn vite build
+        run: yarn vite build --base typos
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
