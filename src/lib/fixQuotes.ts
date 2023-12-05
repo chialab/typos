@@ -8,7 +8,7 @@ export function fixQuotes(input: string) {
     const document = parser.parseFromString(`<html><body>${input}</body></html>`, 'text/html');
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 
-    let node: Text | null = walker.currentNode as Text;
+    let node: Text | null = walker.nextNode() as Text;
     while (node) {
         const parentNode = node.parentElement || document.body;
         if (parentNode.closest('script, pre, code')) {
