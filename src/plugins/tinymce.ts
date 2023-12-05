@@ -75,7 +75,7 @@ export function tinymcePlugin(tinymce: typeof TinyMCE, options: TinyTypoPluginOp
                 editor.selection.setRng(range);
 
                 if (event.data === '\'') {
-                    editor.insertContent((nextContent || !prevContent) ? '\u2018' : '\u2019');
+                    editor.insertContent((nextContent || !prevContent) ? '\u2019' : '\u2018');
                 } else {
                     editor.insertContent((nextContent || !prevContent) ? '\u201c' : '\u201d');
                 }

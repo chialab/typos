@@ -10,9 +10,11 @@
     <textarea></textarea>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.0/tinymce.min.js"></script>
-    <script src="./dist//iife/typos.js"></script>
-    <script>
-        Typos.tinymcePlugin(tinymce);
+    <script type="module">
+        import { tinymcePlugin } from './src/index.ts';
+
+        tinymcePlugin(tinymce);
+
         tinymce.init({
             selector: 'textarea',
             plugins: 'typos',
