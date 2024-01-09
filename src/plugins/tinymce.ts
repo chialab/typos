@@ -55,18 +55,6 @@ export function tinymcePlugin(tinymce: typeof TinyMCE, options: TinyTypoPluginOp
                         return '';
                     }
                 })();
-                const nextContent = (() => {
-                    try {
-                        const range = editor.dom.createRng();
-                        range.selectNodeContents(node);
-                        range.setStart(node, editorRange.endOffset);
-                        range.setEnd(node, editorRange.endOffset + 1);
-                        editor.selection.setRng(range);
-                        return editor.selection.getContent().trim();
-                    } catch (err) {
-                        return '';
-                    }
-                })();
 
                 const range = editor.dom.createRng();
                 range.selectNodeContents(node);
@@ -75,9 +63,9 @@ export function tinymcePlugin(tinymce: typeof TinyMCE, options: TinyTypoPluginOp
                 editor.selection.setRng(range);
 
                 if (event.data === '\'') {
-                    editor.insertContent((nextContent || !prevContent) ? '\u2019' : '\u2018');
+                    editor.insertContent((!prevContent) ? '\u2018' : '\u2019');
                 } else {
-                    editor.insertContent((nextContent || !prevContent) ? '\u201c' : '\u201d');
+                    editor.insertContent((!prevContent) ? '\u201c' : '\u201d');
                 }
             });
 
